@@ -1,0 +1,22 @@
+
+version: '3'
+services:
+  wikidia-wiki:
+    image: wikidia-wiki:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - /volumes/wikidia-www:/var/www
+  wikidia-db:
+    image: wikidia-db:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: wikidb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: wikidb2020
+      MYSQL_PASSWORD: wikidb2020!123
+    ports:
+      - "3306:3306"
+    volumes:
+      - /volumes/wikidia-db:/var/lib/mysql

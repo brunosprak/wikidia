@@ -1,0 +1,3 @@
+FROM mediawiki:1.34.1
+
+

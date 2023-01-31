@@ -1,0 +1,9 @@
+FROM mysql:5.7
+
+RUN yum update && \
+    yum install nano -y && \
+    yum install unzip -y;
+
+#COPY ./backups/wikidb.sql /docker-entrypoint-initdb.d
+COPY ./backups/wikidb.sql /root
+
